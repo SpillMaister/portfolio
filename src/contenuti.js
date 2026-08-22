@@ -128,7 +128,7 @@ export const CREATIVE = {
       testo:
         'Un’azienda che dal 1972 produce fertilizzanti doveva presentare una nuova linea. Ho scelto di non usare il linguaggio del settore — niente grafici, niente rese, niente formule — e ho scritto il video come una lettera del CEO agli agricoltori. Il lancio del prodotto arriva solo alla fine, come conseguenza di quello che gli agricoltori hanno insegnato all’azienda in cinquant’anni.',
       ruolo: 'Concept, script, selezione di videomaker e voce, direzione della produzione. Prodotto anche in inglese e spagnolo.',
-      video: { vimeo: '', formato: '16-9', etichetta: 'Video Organazoto' },
+      video: { vimeo: '1220499621', formato: '16-9', etichetta: 'Video Organazoto' },
     },
     {
       titolo: 'Italven Pelli',
