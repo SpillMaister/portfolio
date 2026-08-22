@@ -214,16 +214,28 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 }
 .profilo-settore { margin: 0; font-size: 0.95rem; opacity: 0.7; }
 
-.fila-verticali,
+/* Profili: griglia a piena larghezza */
+.fila-verticali {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+}
 .fila-post {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.75rem, 1.5vw, 1.25rem);
 }
-.fila-verticali { margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem); }
-.fila-verticali > * { flex: 0 1 clamp(150px, 21vw, 285px); }
-.fila-post > * { flex: 0 1 clamp(150px, 21vw, 285px); }
-.fila-verticali.larga { margin-top: clamp(2.5rem, 5vw, 4rem); margin-bottom: 0; }
+
+/* Live content: reel piccoli, allineati a sinistra */
+.fila-verticali.larga {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 0;
+}
+.fila-verticali.larga > * { flex: 0 1 clamp(150px, 21vw, 285px); }
 
 .griglia-media { margin-top: clamp(2.25rem, 4.5vw, 4rem); display: grid; gap: clamp(0.75rem, 1.5vw, 1.25rem); }
 .griglia-media.due { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -454,9 +466,8 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 
 @media (max-width: 540px) {
   .griglia-media.due, .griglia-media.tre { grid-template-columns: 1fr; }
-  .fila-verticali > *, .fila-post > * { flex: 0 1 calc(50% - 0.5rem); }
-  .fila-post > * { flex: 0 1 calc(33.333% - 0.5rem); }
   .fila-verticali, .fila-post { gap: 0.5rem; }
+  .fila-verticali.larga > * { flex: 0 1 calc(50% - 0.25rem); }
   .profilo-media { grid-template-columns: 1fr; }
   .board-cta { font-size: 0.65rem; padding: 0.55rem 0.85rem; }
   .sezione-testa .punto { width: 26px; height: 26px; margin-top: 0.35rem; }
