@@ -1,0 +1,8 @@
+Metti qui dentro foto e video.
+
+Poi in src/contenuti.js scrivi il nome del file con la barra davanti:
+   file: '/ritratto.jpg'
+   file: '/live-1.mp4'
+
+Nomi tutti minuscoli, senza spazi e senza accenti.
+Immagini sotto 500 KB, video sotto 8 MB.
