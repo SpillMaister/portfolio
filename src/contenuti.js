@@ -51,10 +51,7 @@ export const SOCIAL = {
     {
       nome: 'Conceria Tempesti',
       settore: 'Distretto conciario toscano',
-      video: [
-        { vimeo: '', etichetta: 'Reel 1 — Tempesti' },
-        { vimeo: '', etichetta: 'Reel 2 — Tempesti' },
-      ],
+      video: [{ vimeo: '', etichetta: 'Reel — Tempesti' }],
       feed: { formato: '9-16', file: '/tempesti-feed.jpg', alt: 'Feed Instagram Conceria Tempesti', etichetta: 'Feed Tempesti' },
       post: [
         { formato: '1-1', file: '/tempesti-1.jpg', alt: 'Format 1 — Conceria Tempesti', etichetta: 'Format 1' },
@@ -91,7 +88,7 @@ export const SOCIAL = {
     ruolo: 'Project management della campagna influencer',
     testo:
       'Ho coordinato 16 creator e il piano editoriale su sei mesi: date strategiche di uscita, approvazione degli script, mediazione tra i creator e il cliente. Il canale TikTok l’abbiamo aperto e gestito da zero.',
-    board: { formato: '16-9', file: '/board-piume.jpg', alt: 'Board del progetto PiùMe', etichetta: 'Board PiùMe' },
+    board: { formato: '16-9', file: '/board-piume.jpg', alt: 'Board del progetto PiùMe', etichetta: 'Board PiùMe', ingrandibile: true },
   },
 }
 
@@ -110,7 +107,6 @@ export const LIVE = {
   video: [
     { vimeo: '', etichetta: 'Live 1' },
     { vimeo: '', etichetta: 'Live 2' },
-    { vimeo: '', etichetta: 'Live 3' },
   ],
 }
 
@@ -149,7 +145,7 @@ export const CREATIVE = {
         'Ho seguito la fase finale: ultime riprese delle videolezioni, messa online della piattaforma, stesura dei quiz di verifica. Poi l’evento di lancio, il presskit e il rapporto con le testate.',
       ruolo: '',
       link: { testo: 'learningoffashion.com', url: 'https://learningoffashion.com' },
-      board: { formato: '16-9', file: '/board-lof.jpg', alt: 'Board del progetto Learning of Fashion', etichetta: 'Board Learning of Fashion' },
+      board: { formato: '16-9', file: '/board-lof.jpg', alt: 'Board del progetto Learning of Fashion', etichetta: 'Board Learning of Fashion', ingrandibile: true },
     },
     {
       titolo: 'Mangiare dev’essere un piacere',
