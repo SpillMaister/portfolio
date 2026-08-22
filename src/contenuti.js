@@ -136,7 +136,7 @@ export const CREATIVE = {
       testo:
         'Le pelli non sono mai identiche tra loro. È un limite se le guardi come un prodotto industriale, è il motivo per cui sono uniche se cambi il punto di vista. Ho costruito il video su un parallelismo con le cose che ammiriamo proprio perché imperfette: la Torre di Pisa, la Sagrada Família, il kintsugi giapponese che ripara le ceramiche rotte con l’oro invece di nascondere la crepa.',
       ruolo: 'Concept, script, direzione della produzione.',
-      video: { vimeo: '', formato: '16-9', etichetta: 'Video Italven Pelli' },
+      video: { vimeo: '1220501401', formato: '16-9', etichetta: 'Video Italven Pelli' },
     },
     {
       titolo: 'Learning of Fashion',
