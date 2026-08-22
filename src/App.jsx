@@ -171,27 +171,28 @@ export default function App() {
       <header className="testata" id="inizio">
         <div className="wrap">
           <div className="testata-alto">
-            <div className="testata-foto">
-              <Media dato={a.ritratto} />
+            <div className="colonna-foto">
+              <div className="foto-blocco">
+                <Media dato={a.ritratto} />
+                <span className="punto" aria-hidden="true" />
+              </div>
             </div>
 
-            <div className="testata-nome">
-              <h1 className="nome">
-                <span>{a.cognome}</span>
-                <span>{a.nome}</span>
-              </h1>
-              <p className="ruolo">
-                {a.ruolo.map((riga, i) => (
-                  <span key={i}>{riga}</span>
-                ))}
-              </p>
-            </div>
-          </div>
+            <div className="colonna-testo">
+              <div className="nome-riga">
+                <h1 className="nome">
+                  <span>{a.cognome}</span>
+                  <span>{a.nome}</span>
+                </h1>
+                <p className="ruolo">
+                  {a.ruolo.map((riga, i) => (
+                    <span key={i}>{riga}</span>
+                  ))}
+                </p>
+              </div>
 
-          <div className="testata-basso">
-            <span className="punto" aria-hidden="true" />
-            <div>
               <p className="intro">{a.intro}</p>
+
               <div className="recapiti occhiello">
                 <span>{a.luogo}</span>
                 <a href={`mailto:${a.mail}`}>{a.mail}</a>
