@@ -195,23 +195,70 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 
 .sezione-nota {
   margin: clamp(1.2rem, 2.4vw, 1.9rem) 0 0;
-  max-width: 56ch;
-  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.22rem);
+  max-width: 58ch;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.18rem);
 }
+.sezione-nota p { margin: 0 0 0.9em; }
+.sezione-nota p:last-child { margin-bottom: 0; }
+
+/* ---- Profili social ---- */
+.profili { margin-top: clamp(2.5rem, 5vw, 4.5rem); display: grid; gap: clamp(3rem, 6vw, 5.5rem); }
+
+.profilo-testa { display: flex; align-items: baseline; gap: 0.9rem; flex-wrap: wrap; margin-bottom: clamp(1rem, 2vw, 1.5rem); }
+.profilo-nome {
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 2.6vw, 2.1rem);
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0;
+}
+.profilo-settore { margin: 0; font-size: 0.95rem; opacity: 0.7; }
+
+.fila-verticali {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+.fila-verticali.larga { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(2.5rem, 5vw, 4rem); }
+
+.fila-post { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(0.75rem, 1.5vw, 1.25rem); }
 
 .griglia-media { margin-top: clamp(2.25rem, 4.5vw, 4rem); display: grid; gap: clamp(0.75rem, 1.5vw, 1.25rem); }
 .griglia-media.due { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .griglia-media.tre { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 /* ============================================================================
+   PROFILI SOCIAL
+   ============================================================================ */
+
+.profili { margin-top: clamp(2.5rem, 5vw, 4.5rem); display: grid; gap: clamp(2.5rem, 5vw, 4.5rem); }
+
+.profilo-nome {
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+.profilo-nota { margin: 0 0 1.25rem; max-width: 56ch; }
+
+.profilo-media {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  align-items: start;
+}
+
+/* ============================================================================
    PROGETTI
    ============================================================================ */
 
-.progetti { margin-top: clamp(2.5rem, 5vw, 4.5rem); display: grid; gap: clamp(2.5rem, 5vw, 4.5rem); }
+.progetti { margin-top: clamp(2.5rem, 5vw, 4.5rem); display: grid; gap: clamp(3rem, 6vw, 5.5rem); }
 
 .progetto {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   gap: clamp(1.25rem, 3vw, 3rem);
   align-items: start;
 }
@@ -221,11 +268,10 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
   font-size: clamp(1.45rem, 2.9vw, 2.4rem);
   line-height: 1;
   text-transform: uppercase;
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.3rem;
 }
 
-.progetto-ruolo { margin: 0 0 1rem; font-weight: 600; }
-.progetto-testo { margin: 0; }
+.progetto-sottotitolo { margin: 0 0 0.5rem; font-size: 1.1em; font-style: italic; }
 .progetto-link { margin: 1rem 0 0; }
 
 .numeri {
@@ -237,6 +283,89 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
   font-size: clamp(1.05rem, 1.9vw, 1.5rem);
   text-transform: uppercase;
 }
+
+/* ============================================================================
+   LETTORE VIDEO (Vimeo / Drive)
+   ============================================================================ */
+
+.lettore { position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--blu-velo); }
+.lettore iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ============================================================================
+   BOARD — anteprima e apertura a tutto schermo
+   ============================================================================ */
+
+.board-anteprima {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  font: inherit;
+  color: inherit;
+  overflow: hidden;
+}
+.board-anteprima img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
+.board-anteprima:hover img { transform: scale(1.015); }
+.board-anteprima:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; }
+
+.board-cta {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.1rem;
+  background: var(--blu);
+  color: var(--crema);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: padding-right 0.3s ease;
+}
+.board-anteprima:hover .board-cta { padding-right: 1.6rem; }
+.board-cta-segno { font-size: 1em; }
+
+/* Sovrapposizione a tutto schermo */
+.faro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--crema);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  cursor: zoom-out;
+  animation: entra 0.25s ease;
+}
+.faro img { max-width: 100%; max-height: 100%; object-fit: contain; cursor: default; }
+
+.faro-chiudi {
+  position: absolute;
+  top: clamp(0.75rem, 2vw, 1.5rem);
+  right: clamp(0.75rem, 2vw, 1.5rem);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--blu);
+  background: var(--crema);
+  color: var(--blu);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.faro-chiudi:hover { background: var(--blu); color: var(--crema); }
+.faro-chiudi:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; }
+
+@keyframes entra { from { opacity: 0 } to { opacity: 1 } }
 
 /* ============================================================================
    SEGNAPOSTO E MEDIA
@@ -273,6 +402,7 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 /* Quando c'è un file, il segnaposto sparisce */
 .media.pieno { border: 0; background: transparent; padding: 0; }
 .media.pieno > img, .media.pieno > video { width: 100%; height: 100%; object-fit: cover; }
+.media.pieno > iframe { width: 100%; height: 100%; border: 0; display: block; }
 
 /* ============================================================================
    PIEDE
@@ -316,11 +446,18 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
   .ruolo { max-width: none; }
   .recapiti { gap: 0.5rem 1.25rem; }
   .progetto { grid-template-columns: 1fr; }
+  .fila-verticali { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fila-verticali.larga { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .progetto-media { margin-top: 0.5rem; }
   .griglia-media.tre { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .barra-recapiti span { display: none; }
 }
 
 @media (max-width: 540px) {
   .griglia-media.due, .griglia-media.tre { grid-template-columns: 1fr; }
+  .fila-verticali, .fila-verticali.larga { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fila-post { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+  .profilo-media { grid-template-columns: 1fr; }
+  .board-cta { font-size: 0.65rem; padding: 0.55rem 0.85rem; }
   .sezione-testa .punto { width: 26px; height: 26px; margin-top: 0.35rem; }
 }
