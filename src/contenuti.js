@@ -51,7 +51,7 @@ export const SOCIAL = {
     {
       nome: 'Conceria Tempesti',
       settore: 'Distretto conciario toscano',
-      video: [{ vimeo: '', etichetta: 'Reel — Tempesti' }],
+      video: [{ vimeo: '1220502033', etichetta: 'Reel — Tempesti' }],
       feed: { formato: '9-16', file: '/tempesti-feed.jpg', alt: 'Feed Instagram Conceria Tempesti', etichetta: 'Feed Tempesti' },
       post: [
         { formato: '1-1', file: '/tempesti-1.jpg', alt: 'Format 1 — Conceria Tempesti', etichetta: 'Format 1' },
@@ -62,7 +62,7 @@ export const SOCIAL = {
     {
       nome: 'Fibel Group',
       settore: '',
-      video: [{ vimeo: '', etichetta: 'Reel — Fibel Group' }],
+      video: [{ vimeo: '1220502907', etichetta: 'Reel — Fibel Group' }],
       feed: { formato: '9-16', file: '/fibel-feed.jpg', alt: 'Feed Instagram Fibel Group', etichetta: 'Feed Fibel Group' },
       post: [
         { formato: '1-1', file: '/fibel-1.jpg', alt: 'Format 1 — Fibel Group', etichetta: 'Format 1' },
@@ -73,7 +73,7 @@ export const SOCIAL = {
     {
       nome: 'Harris Shoes 1913',
       settore: 'Calzature artigianali',
-      video: [{ vimeo: '', etichetta: 'Reel — Harris Shoes' }],
+      video: [{ vimeo: '1220503029', etichetta: 'Reel — Harris Shoes' }],
       feed: { formato: '9-16', file: '/harris-feed.jpg', alt: 'Feed Instagram Harris Shoes', etichetta: 'Feed Harris Shoes' },
       post: [
         { formato: '1-1', file: '/harris-1.jpg', alt: 'Format 1 — Harris Shoes', etichetta: 'Format 1' },
