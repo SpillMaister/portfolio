@@ -1,21 +1,34 @@
 import { useEffect, useRef, useState } from 'react'
-import { ANAGRAFICA, SEZIONI } from './contenuti.js'
+import { ANAGRAFICA, SOCIAL, LIVE, CREATIVE } from './contenuti.js'
 
 /* ============================================================================
-   Non serve modificare questo file: tutti i testi e i materiali stanno
-   in  src/contenuti.js
+   Non serve modificare questo file: testi e materiali stanno in contenuti.js
    ============================================================================ */
 
 const ESTENSIONI_VIDEO = /\.(mp4|webm|mov|m4v)$/i
 
-/* Mostra un'immagine, un video o — se il campo file è vuoto — un segnaposto. */
-function Media({ dato }) {
+/* Immagine, video locale, video Vimeo o segnaposto. */
+function Media({ dato, className = '' }) {
   if (!dato) return null
-  const { formato = '16-9', file, alt = '', etichetta = 'Materiale' } = dato
+  const { formato = '16-9', file, vimeo, alt = '', etichetta = 'Materiale' } = dato
+
+  if (vimeo) {
+    return (
+      <div className={`media pieno ${className}`.trim()} data-ratio={formato}>
+        <iframe
+          src={`https://player.vimeo.com/video/${vimeo}?title=0&byline=0&portrait=0&dnt=1`}
+          title={alt || etichetta}
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+          loading="lazy"
+        />
+      </div>
+    )
+  }
 
   if (!file) {
     return (
-      <div className="media" data-ratio={formato}>
+      <div className={`media ${className}`.trim()} data-ratio={formato}>
         <span className="media-etichetta">
           {etichetta}
           <span className="media-formato">{formato.replace('-', ':')}</span>
@@ -24,11 +37,9 @@ function Media({ dato }) {
     )
   }
 
-  const isVideo = ESTENSIONI_VIDEO.test(file)
-
   return (
-    <div className="media pieno" data-ratio={formato}>
-      {isVideo ? (
+    <div className={`media pieno ${className}`.trim()} data-ratio={formato}>
+      {ESTENSIONI_VIDEO.test(file) ? (
         <video src={file} autoPlay muted loop playsInline preload="metadata" aria-label={alt} />
       ) : (
         <img src={file} alt={alt} loading="lazy" decoding="async" />
@@ -37,7 +48,6 @@ function Media({ dato }) {
   )
 }
 
-/* Comparsa graduale allo scorrimento. */
 function Appare({ children, className = '', ...props }) {
   const ref = useRef(null)
 
@@ -55,7 +65,7 @@ function Appare({ children, className = '', ...props }) {
           osservatore.unobserve(el)
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' },
+      { threshold: 0.08, rootMargin: '0px 0px -60px 0px' },
     )
     osservatore.observe(el)
     return () => osservatore.disconnect()
@@ -68,14 +78,63 @@ function Appare({ children, className = '', ...props }) {
   )
 }
 
+function TestaSezione({ titolo, testo }) {
+  return (
+    <Appare>
+      <div className="sezione-testa">
+        <span className="punto" aria-hidden="true" />
+        <h2 className="sezione-titolo">
+          {titolo.map((riga, i) => (
+            <span key={i}>{riga}</span>
+          ))}
+        </h2>
+      </div>
+      <div className="sezione-nota">
+        {testo.map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
+      </div>
+    </Appare>
+  )
+}
+
+/* Un profilo social: reel e feed in alto, tre format sotto. */
+function Profilo({ dato }) {
+  const verticali = [...dato.video.map((v) => ({ ...v, formato: '9-16' })), dato.feed]
+
+  return (
+    <Appare className="profilo">
+      <div className="profilo-testa">
+        <h3 className="profilo-nome">{dato.nome}</h3>
+        {dato.settore && <p className="profilo-settore">{dato.settore}</p>}
+      </div>
+
+      <div className="fila-verticali">
+        {verticali.map((m, i) => (
+          <Media key={i} dato={m} />
+        ))}
+      </div>
+
+      <div className="fila-post">
+        {dato.post.map((m, i) => (
+          <Media key={i} dato={m} />
+        ))}
+      </div>
+    </Appare>
+  )
+}
+
+/* Progetto con board o video accanto al testo. */
 function Progetto({ dato }) {
+  const visual = dato.video || dato.board || dato.media
+
   return (
     <Appare className="progetto">
-      <div>
+      <div className="progetto-testo">
         <h3 className="progetto-titolo">{dato.titolo}</h3>
-        <p className="progetto-ruolo">{dato.ruolo}</p>
-        <p className="progetto-testo">{dato.testo}</p>
-
+        {dato.sottotitolo && <p className="progetto-sottotitolo">{dato.sottotitolo}</p>}
+        <p>{dato.testo}</p>
+        {dato.ruolo && <p className="progetto-ruolo">{dato.ruolo}</p>}
         {dato.link && (
           <p className="progetto-link">
             <a href={dato.link.url} target="_blank" rel="noreferrer">
@@ -83,58 +142,12 @@ function Progetto({ dato }) {
             </a>
           </p>
         )}
-
-        {dato.numeri?.length > 0 && (
-          <p className="numeri">
-            {dato.numeri.map((n) => (
-              <span key={n}>{n}</span>
-            ))}
-          </p>
-        )}
       </div>
-
-      <Media dato={dato.media} />
+      <Media dato={visual} />
     </Appare>
   )
 }
 
-function Sezione({ dato }) {
-  return (
-    <section className="sezione" id={dato.id}>
-      <div className="wrap">
-        <Appare>
-          <div className="sezione-testa">
-            <span className="punto" aria-hidden="true" />
-            <h2 className="sezione-titolo">
-              {dato.titolo.map((riga, i) => (
-                <span key={i}>{riga}</span>
-              ))}
-            </h2>
-          </div>
-          <p className="sezione-nota">{dato.nota}</p>
-        </Appare>
-
-        {dato.media?.length > 0 && (
-          <Appare className={`griglia-media ${dato.colonne}`}>
-            {dato.media.map((m, i) => (
-              <Media key={i} dato={m} />
-            ))}
-          </Appare>
-        )}
-
-        {dato.progetti?.length > 0 && (
-          <div className="progetti">
-            {dato.progetti.map((p) => (
-              <Progetto key={p.titolo} dato={p} />
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
-  )
-}
-
-/* Barra fissa che compare dopo la testata. */
 function Barra({ a }) {
   const [mostra, setMostra] = useState(false)
 
@@ -151,9 +164,7 @@ function Barra({ a }) {
         {a.cognome} {a.nome}
       </a>
       <div className="barra-recapiti occhiello">
-        <a href={`mailto:${a.mail}`} tabIndex={mostra ? 0 : -1}>
-          Scrivimi
-        </a>
+        <a href={`mailto:${a.mail}`} tabIndex={mostra ? 0 : -1}>Scrivimi</a>
       </div>
     </div>
   )
@@ -205,9 +216,50 @@ export default function App() {
       </header>
 
       <main id="contenuto">
-        {SEZIONI.map((s) => (
-          <Sezione key={s.id} dato={s} />
-        ))}
+        <section className="sezione" id="social">
+          <div className="wrap">
+            <TestaSezione titolo={SOCIAL.titolo} testo={SOCIAL.testo} />
+
+            <div className="profili">
+              {SOCIAL.profili.map((p) => (
+                <Profilo key={p.nome} dato={p} />
+              ))}
+            </div>
+
+            <div className="progetti">
+              <Progetto
+                dato={{
+                  titolo: SOCIAL.progetto.titolo,
+                  sottotitolo: SOCIAL.progetto.ruolo,
+                  testo: SOCIAL.progetto.testo,
+                  board: SOCIAL.progetto.board,
+                }}
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="sezione" id="live">
+          <div className="wrap">
+            <TestaSezione titolo={LIVE.titolo} testo={LIVE.testo} />
+            <div className="fila-verticali larga">
+              {LIVE.video.map((v, i) => (
+                <Media key={i} dato={{ ...v, formato: '9-16' }} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="sezione" id="creative">
+          <div className="wrap">
+            <TestaSezione titolo={CREATIVE.titolo} testo={CREATIVE.testo} />
+            <div className="progetti">
+              {CREATIVE.progetti.map((p) => (
+                <Progetto key={p.titolo} dato={p} />
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer className="piede">
