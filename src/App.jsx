@@ -7,10 +7,50 @@ import { ANAGRAFICA, SOCIAL, LIVE, CREATIVE } from './contenuti.js'
 
 const ESTENSIONI_VIDEO = /\.(mp4|webm|mov|m4v)$/i
 
+/* Sovrapposizione a tutto schermo per le board. */
+function Ingrandimento({ file, alt, chiudi }) {
+  useEffect(() => {
+    const onTasto = (e) => { if (e.key === 'Escape') chiudi() }
+    document.addEventListener('keydown', onTasto)
+    const scorrimento = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onTasto)
+      document.body.style.overflow = scorrimento
+    }
+  }, [chiudi])
+
+  return (
+    <div className="lente" role="dialog" aria-modal="true" aria-label={alt} onClick={chiudi}>
+      <button className="lente-chiudi" onClick={chiudi} aria-label="Chiudi">✕</button>
+      <img src={file} alt={alt} onClick={(e) => e.stopPropagation()} />
+    </div>
+  )
+}
+
 /* Immagine, video locale, video Vimeo o segnaposto. */
 function Media({ dato, className = '' }) {
+  const [aperto, setAperto] = useState(false)
   if (!dato) return null
-  const { formato = '16-9', file, vimeo, alt = '', etichetta = 'Materiale' } = dato
+  const { formato = '16-9', file, vimeo, alt = '', etichetta = 'Materiale', ingrandibile } = dato
+
+  if (ingrandibile && file) {
+    return (
+      <>
+        <button
+          type="button"
+          className={`media pieno ingrandibile ${className}`.trim()}
+          data-ratio={formato}
+          onClick={() => setAperto(true)}
+          aria-label={`Ingrandisci: ${alt || etichetta}`}
+        >
+          <img src={file} alt={alt} loading="lazy" decoding="async" />
+          <span className="lente-segno" aria-hidden="true">Ingrandisci</span>
+        </button>
+        {aperto && <Ingrandimento file={file} alt={alt} chiudi={() => setAperto(false)} />}
+      </>
+    )
+  }
 
   if (vimeo) {
     return (
