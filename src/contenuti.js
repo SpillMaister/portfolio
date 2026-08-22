@@ -31,7 +31,7 @@ export const ANAGRAFICA = {
   linkedin: 'https://www.linkedin.com/in/giuseppe-intelisano-633421212/',
 
   // Ritratto della testata. Usa la versione duotone del CV.
-  ritratto: { formato: '3-4', file: '', alt: 'Giuseppe Intelisano', etichetta: 'Ritratto duotone' },
+  ritratto: { formato: '3-4', file: '/ritratto.jpg', alt: 'Giuseppe Intelisano', etichetta: 'Ritratto duotone' },
 
   // CV in PDF. Metti il file in public/ e scrivi qui il nome.
   // Lascia '' se non vuoi il link di download.
