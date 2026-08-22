@@ -4,10 +4,10 @@
    ============================================================================ */
 
 :root {
-  --crema: #FBF0E8;
-  --blu: #1B4DF2;
-  --blu-velo: rgba(27, 77, 242, 0.07);
-  --blu-linea: rgba(27, 77, 242, 0.22);
+  --crema: #FFF5EE;
+  --blu: #026EFF;
+  --blu-velo: rgba(2, 110, 255, 0.07);
+  --blu-linea: rgba(2, 110, 255, 0.22);
 
   --display: 'Anton', Impact, sans-serif;
   --testo: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
@@ -107,7 +107,7 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 .barra-nome { font-family: var(--display); text-transform: uppercase; font-size: 1rem; letter-spacing: 0.02em; }
 
 /* ============================================================================
-   TESTATA — il nome scavalca il ritratto, come sul CV
+   TESTATA — impianto del CV: foto a sinistra, nome e ruolo affiancati a destra
    ============================================================================ */
 
 .testata { padding-top: clamp(2rem, 5vw, 4.5rem); padding-bottom: clamp(3rem, 7vw, 6rem); }
@@ -115,52 +115,63 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 .testata-alto {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  align-items: start;
 }
-.testata-foto { grid-column: 1 / 5; grid-row: 1; }
-.testata-nome  { grid-column: 4 / 13; grid-row: 1; position: relative; z-index: 2; }
+
+.colonna-foto { grid-column: 1 / 5; }
+.colonna-testo { grid-column: 5 / 13; }
+
+.foto-blocco { position: relative; }
+.foto-blocco .punto {
+  position: absolute;
+  left: 12%;
+  bottom: 0;
+  transform: translateY(45%);
+  z-index: 2;
+}
+
+.recapiti {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.75rem;
+}
+
+.nome-riga {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(0.75rem, 1.8vw, 1.75rem);
+}
 
 .nome {
   font-family: var(--display);
   font-weight: 400;
-  font-size: clamp(3rem, 12.5vw, 12.5rem);
+  font-size: clamp(2.6rem, 9.2vw, 9.5rem);
   line-height: 0.79;
   letter-spacing: -0.015em;
   text-transform: uppercase;
   margin: 0;
+  flex: none;
 }
 .nome span { display: block; }
 
 .ruolo {
   font-family: var(--display);
-  font-size: clamp(1rem, 2.5vw, 2.2rem);
-  line-height: 1.04;
+  font-size: clamp(0.85rem, 1.75vw, 1.85rem);
+  line-height: 1.02;
   text-transform: uppercase;
-  margin: clamp(0.6rem, 1.4vw, 1.1rem) 0 0;
+  margin: 0 0 0.12em;
+  max-width: 9em;
 }
 .ruolo span { display: block; }
 
-.testata-basso {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(1rem, 2.5vw, 2.5rem);
-  margin-top: clamp(2.5rem, 5vw, 4.5rem);
-  align-items: start;
-}
-
 .intro {
-  font-size: clamp(1.05rem, 1rem + 0.65vw, 1.6rem);
-  line-height: 1.4;
-  margin: 0;
-  max-width: 40ch;
-}
-
-.recapiti {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
-  margin-top: clamp(1.5rem, 3vw, 2.25rem);
-  align-items: center;
+  font-size: clamp(1.02rem, 0.95rem + 0.6vw, 1.5rem);
+  line-height: 1.36;
+  margin: clamp(1.25rem, 2.5vw, 2rem) 0 0;
+  max-width: 44ch;
 }
 
 /* ============================================================================
@@ -299,10 +310,11 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 
 @media (max-width: 900px) {
   .testata-alto { grid-template-columns: 1fr; }
-  .testata-foto { grid-column: 1; grid-row: 1; max-width: 320px; }
-  .testata-nome { grid-column: 1; grid-row: 2; margin-top: 1.25rem; }
-  .testata-basso { grid-template-columns: 1fr; }
-  .testata-basso .punto { display: none; }
+  .colonna-foto { grid-column: 1; max-width: 300px; }
+  .colonna-testo { grid-column: 1; }
+  .nome-riga { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .ruolo { max-width: none; }
+  .recapiti { gap: 0.5rem 1.25rem; }
   .progetto { grid-template-columns: 1fr; }
   .griglia-media.tre { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .barra-recapiti span { display: none; }
