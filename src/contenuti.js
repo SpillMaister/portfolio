@@ -1,19 +1,17 @@
 /* ============================================================================
 
-   CONTENUTI DEL SITO
+   CONTENUTI DEL SITO — è l'unico file da modificare.
 
-   Questo è l'UNICO file che devi modificare.
-   Non serve aprire gli altri.
+   ── IMMAGINI ────────────────────────────────────────────────────────────
+   1. Carica il file nella cartella  public/
+   2. Scrivi il nome con la barra davanti:   file: '/tempesti-post-1.jpg'
 
-   COME INSERIRE UN MATERIALE
-   1. Metti il file nella cartella  public/
-   2. Qui sotto, cerca la voce  file: ''  del punto giusto
-   3. Scrivi il nome del file con la barra davanti, per esempio:
-         file: '/piume.jpg'
-         file: '/live-1.mp4'
+   ── VIDEO (Vimeo) ───────────────────────────────────────────────────────
+   1. Carica il video su Vimeo, impostalo su "Non elencato"
+   2. Copia il numero dall'indirizzo:  vimeo.com/1234567890  →  1234567890
+   3. Scrivilo qui:   vimeo: '1234567890'
 
-   Immagini e video vengono riconosciuti in automatico dall'estensione.
-   Finché  file  resta vuoto, al suo posto compare un riquadro tratteggiato.
+   Finché un campo resta vuoto compare un riquadro tratteggiato.
 
    ============================================================================ */
 
@@ -30,88 +28,138 @@ export const ANAGRAFICA = {
   telefono: '+39 392 233 8527',
   linkedin: 'https://www.linkedin.com/in/giuseppe-intelisano-633421212/',
 
-  // Ritratto della testata. Usa la versione duotone del CV.
   ritratto: { formato: '3-4', file: '/ritratto.jpg', alt: 'Giuseppe Intelisano', etichetta: 'Ritratto duotone' },
 
-  // CV in PDF. Metti il file in public/ e scrivi qui il nome.
-  // Lascia '' se non vuoi il link di download.
   cv: '',
 }
 
-export const SEZIONI = [
-  /* ------------------------------------------------------------------ */
-  {
-    id: 'social',
-    titolo: ['Social media', 'management'],
-    nota:
-      'Seguo in parallelo i canali di oltre dodici aziende, tra concerie, industria, retail e servizi. Definisco il tono di voce e il posizionamento insieme al cliente, costruisco il piano editoriale, produco i contenuti e gestisco le campagne Meta leggendo i risultati per correggere la rotta.',
+/* ==========================================================================
+   1 — SOCIAL MEDIA MANAGEMENT
+   ========================================================================== */
 
-    // ATTENZIONE: nei prima/dopo copri i nomi dei clienti.
-    // Scrivi il settore, non il marchio.
-    colonne: 'tre',
-    media: [
-      { formato: '4-5', file: '', alt: '', etichetta: 'Prima / dopo — settore 1' },
-      { formato: '4-5', file: '', alt: '', etichetta: 'Prima / dopo — settore 2' },
-      { formato: '4-5', file: '', alt: '', etichetta: 'Prima / dopo — settore 3' },
-    ],
+export const SOCIAL = {
+  titolo: ['Social media', 'management'],
 
-    progetti: [
-      {
-        titolo: 'PiùMe',
-        ruolo: 'Project Manager — campagna influencer',
-        testo:
-          'Coordinamento di 16 creator e del piano editoriale su sei mesi: date di uscita, approvazione degli script, mediazione con il cliente. Canale TikTok aperto e gestito da zero, dentro un riposizionamento del brand verso la Generazione Z.',
-        numeri: ['264 mln visualizzazioni', '23 mln copertura', '+80% traffico al sito'],
-        media: { formato: '16-9', file: '', alt: '', etichetta: 'Contenuti campagna PiùMe' },
-      },
-    ],
+  testo: [
+    'Gestisco la comunicazione online delle aziende dall’inizio alla fine.',
+    'Divido i contenuti per format, ognuno con un compito diverso: c’è quello che racconta la storia dell’azienda, quello che spiega una tecnologia, quello che porta avanti il prodotto. Messi insieme coprono tutti i punti che il brand deve presidiare, invece di ripetere sempre lo stesso messaggio.',
+    'Penso i concept creativi dei format e dirigo gli shooting. La pubblicazione è automatizzata: programmo i piani editoriali su Metricool con Claude, e uso agenti GPT istruiti sul singolo cliente per scrivere caption e articoli nel suo tono di voce.',
+    'Sulle campagne Meta costruisco la strategia partendo dal budget e dagli obiettivi: studio le user persona, imposto il funnel, scelgo i formati. E automatizzo anche il controllo — con Claude programmo routine che ogni mattina scaricano i contatti in Excel e mi avvisano quando budget o performance escono dalla strategia.',
+  ],
+
+  profili: [
+    {
+      nome: 'Conceria Tempesti',
+      settore: 'Distretto conciario toscano',
+      video: [
+        { vimeo: '', etichetta: 'Reel 1 — Tempesti' },
+        { vimeo: '', etichetta: 'Reel 2 — Tempesti' },
+      ],
+      feed: { formato: '9-16', file: '', alt: '', etichetta: 'Feed Tempesti' },
+      post: [
+        { formato: '1-1', file: '', alt: '', etichetta: 'Format 1' },
+        { formato: '1-1', file: '', alt: '', etichetta: 'Format 2' },
+        { formato: '1-1', file: '', alt: '', etichetta: 'Format 3' },
+      ],
+    },
+    {
+      nome: 'Fibel Group',
+      settore: '',
+      video: [{ vimeo: '', etichetta: 'Reel — Fibel Group' }],
+      feed: { formato: '9-16', file: '', alt: '', etichetta: 'Feed Fibel Group' },
+      post: [
+        { formato: '1-1', file: '', alt: '', etichetta: 'Format 1' },
+        { formato: '1-1', file: '', alt: '', etichetta: 'Format 2' },
+        { formato: '1-1', file: '', alt: '', etichetta: 'Format 3' },
+      ],
+    },
+    {
+      nome: 'Harris Shoes 1913',
+      settore: 'Calzature artigianali',
+      video: [{ vimeo: '', etichetta: 'Reel — Harris Shoes' }],
+      feed: { formato: '9-16', file: '', alt: '', etichetta: 'Feed Harris Shoes' },
+      post: [
+        { formato: '1-1', file: '', alt: '', etichetta: 'Format 1' },
+        { formato: '1-1', file: '', alt: '', etichetta: 'Format 2' },
+        { formato: '1-1', file: '', alt: '', etichetta: 'Format 3' },
+      ],
+    },
+  ],
+
+  progetto: {
+    titolo: 'PiùMe',
+    ruolo: 'Project management della campagna influencer',
+    testo:
+      'Ho coordinato 16 creator e il piano editoriale su sei mesi: date strategiche di uscita, approvazione degli script, mediazione tra i creator e il cliente. Il canale TikTok l’abbiamo aperto e gestito da zero.',
+    board: { formato: '16-9', file: '', alt: 'Board del progetto PiùMe', etichetta: 'Board PiùMe' },
   },
+}
 
-  /* ------------------------------------------------------------------ */
-  {
-    id: 'live',
-    titolo: ['Live content', 'creation'],
-    nota:
-      'Giro con il telefono e monto sul posto: il contenuto esce mentre l’evento è ancora in corso, non tre giorni dopo. È il formato in cui sono più veloce ed è quello che preferisco.',
+/* ==========================================================================
+   2 — LIVE CONTENT CREATION
+   ========================================================================== */
 
-    colonne: 'tre',
-    media: [
-      { formato: '9-16', file: '', alt: '', etichetta: 'Video live 1' },
-      { formato: '9-16', file: '', alt: '', etichetta: 'Video live 2' },
-      { formato: '9-16', file: '', alt: '', etichetta: 'Video live 3' },
-    ],
+export const LIVE = {
+  titolo: ['Live content', 'creation'],
 
-    progetti: [],
-  },
+  testo: [
+    'Durante eventi e fiere quello che succede va raccontato mentre succede, non tre giorni dopo.',
+    'Giro con telefono o camera, monto in CapCut sul posto e pubblico in pochi minuti: il contenuto esce mentre le persone sono ancora lì.',
+  ],
 
-  /* ------------------------------------------------------------------ */
-  {
-    id: 'direzione',
-    titolo: ['Direzione', 'creativa'],
-    nota:
-      'Progetti che nascono e si chiudono: scrivo lo script, scelgo i professionisti, dirigo la produzione e rispondo del risultato finale.',
+  video: [
+    { vimeo: '', etichetta: 'Live 1' },
+    { vimeo: '', etichetta: 'Live 2' },
+    { vimeo: '', etichetta: 'Live 3' },
+  ],
+}
 
-    colonne: 'due',
-    media: [],
+/* ==========================================================================
+   3 — CREATIVE DIRECTION
+   ========================================================================== */
 
-    progetti: [
-      {
-        titolo: 'Organazoto',
-        ruolo: 'Direzione creativa — video corporate',
-        testo:
-          'Lancio della linea liquida di fertilizzanti raccontato senza il linguaggio dei numeri: il video è scritto come una lettera del CEO agli agricoltori. Script, casting di videomaker e voce, direzione della produzione. Prodotto anche in inglese e spagnolo per i mercati esteri.',
-        numeri: [],
-        media: { formato: '16-9', file: '', alt: '', etichetta: 'Video corporate Organazoto' },
-      },
-      {
-        titolo: 'Learning of Fashion',
-        ruolo: 'Chiusura e lancio del progetto',
-        testo:
-          'Piattaforma di formazione gratuita che trasmette il sapere artigianale della moda italiana alle nuove generazioni, finanziata da UE e Ministero della Cultura. Ultime riprese, messa online della piattaforma, stesura dei quiz di verifica. Evento di lancio, presskit e rapporto con le testate.',
-        numeri: ['10+ ore di lezioni', '14 professionisti'],
-        media: { formato: '3-4', file: '', alt: '', etichetta: 'Presskit Learning of Fashion' },
-        link: { testo: 'learningoffashion.com', url: 'https://learningoffashion.com' },
-      },
-    ],
-  },
-]
+export const CREATIVE = {
+  titolo: ['Creative', 'direction'],
+
+  testo: [
+    'Progetti che nascono e si chiudono. Penso il concept, scrivo lo script, scelgo i professionisti e dirigo la produzione.',
+  ],
+
+  progetti: [
+    {
+      titolo: 'Organazoto',
+      sottotitolo: 'Video corporate per il lancio della linea liquida',
+      testo:
+        'Un’azienda che dal 1972 produce fertilizzanti doveva presentare una nuova linea. Ho scelto di non usare il linguaggio del settore — niente grafici, niente rese, niente formule — e ho scritto il video come una lettera del CEO agli agricoltori. Il lancio del prodotto arriva solo alla fine, come conseguenza di quello che gli agricoltori hanno insegnato all’azienda in cinquant’anni.',
+      ruolo: 'Concept, script, selezione di videomaker e voce, direzione della produzione. Prodotto anche in inglese e spagnolo.',
+      video: { vimeo: '', formato: '16-9', etichetta: 'Video Organazoto' },
+    },
+    {
+      titolo: 'Italven Pelli',
+      sottotitolo: 'La bellezza dell’imperfezione',
+      testo:
+        'Le pelli non sono mai identiche tra loro. È un limite se le guardi come un prodotto industriale, è il motivo per cui sono uniche se cambi il punto di vista. Ho costruito il video su un parallelismo con le cose che ammiriamo proprio perché imperfette: la Torre di Pisa, la Sagrada Família, il kintsugi giapponese che ripara le ceramiche rotte con l’oro invece di nascondere la crepa.',
+      ruolo: 'Concept, script, direzione della produzione.',
+      video: { vimeo: '', formato: '16-9', etichetta: 'Video Italven Pelli' },
+    },
+    {
+      titolo: 'Learning of Fashion',
+      sottotitolo: 'Chiusura e lancio del progetto',
+      testo:
+        'Ho seguito la fase finale: ultime riprese delle videolezioni, messa online della piattaforma, stesura dei quiz di verifica. Poi l’evento di lancio, il presskit e il rapporto con le testate.',
+      ruolo: '',
+      link: { testo: 'learningoffashion.com', url: 'https://learningoffashion.com' },
+      board: { formato: '16-9', file: '', alt: 'Board del progetto Learning of Fashion', etichetta: 'Board Learning of Fashion' },
+    },
+    {
+      titolo: 'Mangiare dev’essere un piacere',
+      sottotitolo: 'Campagna di sensibilizzazione — BB&C Group',
+      testo:
+        'Le campagne sulle malattie rare hanno quasi tutte lo stesso tono grave. Questa parte dal presupposto opposto: l’esofagite eosinofila si racconta meglio facendo ridere. Edoardo Mecca, comico radiofonico, mette in scena quello che chi ne soffre fa davvero — frullare il cibo, annegarlo nelle salse — mentre Bubu, finalista di MasterChef Italia, costruisce un menu pensato per la patologia. Le video-pillole dei medici e dell’associazione pazienti ESEO reggono la parte scientifica.',
+      ruolo:
+        'Da stagista, in supporto al team lungo tutto il progetto: proposte di casting per il comico e per lo chef, scrittura delle scenette, coordinamento con la casa di produzione e presenza sul set durante le riprese. Ho disegnato il logo della campagna e scritto parte dei testi.',
+      link: { testo: 'mangiaredevessereunpiacere.it', url: 'https://mangiaredevessereunpiacere.it' },
+      media: { formato: '16-9', file: '', alt: '', etichetta: 'Campagna Mangiare dev’essere un piacere' },
+    },
+  ],
+}
