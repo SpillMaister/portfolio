@@ -55,33 +55,33 @@ export const SOCIAL = {
         { vimeo: '', etichetta: 'Reel 1 — Tempesti' },
         { vimeo: '', etichetta: 'Reel 2 — Tempesti' },
       ],
-      feed: { formato: '9-16', file: '', alt: '', etichetta: 'Feed Tempesti' },
+      feed: { formato: '9-16', file: '/tempesti-feed.jpg', alt: 'Feed Instagram Conceria Tempesti', etichetta: 'Feed Tempesti' },
       post: [
-        { formato: '1-1', file: '', alt: '', etichetta: 'Format 1' },
-        { formato: '1-1', file: '', alt: '', etichetta: 'Format 2' },
-        { formato: '1-1', file: '', alt: '', etichetta: 'Format 3' },
+        { formato: '1-1', file: '/tempesti-1.jpg', alt: 'Format 1 — Conceria Tempesti', etichetta: 'Format 1' },
+        { formato: '1-1', file: '/tempesti-2.jpg', alt: 'Format 2 — Conceria Tempesti', etichetta: 'Format 2' },
+        { formato: '1-1', file: '/tempesti-3.jpg', alt: 'Format 3 — Conceria Tempesti', etichetta: 'Format 3' },
       ],
     },
     {
       nome: 'Fibel Group',
       settore: '',
       video: [{ vimeo: '', etichetta: 'Reel — Fibel Group' }],
-      feed: { formato: '9-16', file: '', alt: '', etichetta: 'Feed Fibel Group' },
+      feed: { formato: '9-16', file: '/fibel-feed.jpg', alt: 'Feed Instagram Fibel Group', etichetta: 'Feed Fibel Group' },
       post: [
-        { formato: '1-1', file: '', alt: '', etichetta: 'Format 1' },
-        { formato: '1-1', file: '', alt: '', etichetta: 'Format 2' },
-        { formato: '1-1', file: '', alt: '', etichetta: 'Format 3' },
+        { formato: '1-1', file: '/fibel-1.jpg', alt: 'Format 1 — Fibel Group', etichetta: 'Format 1' },
+        { formato: '1-1', file: '/fibel-2.jpg', alt: 'Format 2 — Fibel Group', etichetta: 'Format 2' },
+        { formato: '1-1', file: '/fibel-3.jpg', alt: 'Format 3 — Fibel Group', etichetta: 'Format 3' },
       ],
     },
     {
       nome: 'Harris Shoes 1913',
       settore: 'Calzature artigianali',
       video: [{ vimeo: '', etichetta: 'Reel — Harris Shoes' }],
-      feed: { formato: '9-16', file: '', alt: '', etichetta: 'Feed Harris Shoes' },
+      feed: { formato: '9-16', file: '/harris-feed.jpg', alt: 'Feed Instagram Harris Shoes', etichetta: 'Feed Harris Shoes' },
       post: [
-        { formato: '1-1', file: '', alt: '', etichetta: 'Format 1' },
-        { formato: '1-1', file: '', alt: '', etichetta: 'Format 2' },
-        { formato: '1-1', file: '', alt: '', etichetta: 'Format 3' },
+        { formato: '1-1', file: '/harris-1.jpg', alt: 'Format 1 — Harris Shoes', etichetta: 'Format 1' },
+        { formato: '1-1', file: '/harris-2.jpg', alt: 'Format 2 — Harris Shoes', etichetta: 'Format 2' },
+        { formato: '1-1', file: '/harris-3.jpg', alt: 'Format 3 — Harris Shoes', etichetta: 'Format 3' },
       ],
     },
   ],
@@ -91,7 +91,7 @@ export const SOCIAL = {
     ruolo: 'Project management della campagna influencer',
     testo:
       'Ho coordinato 16 creator e il piano editoriale su sei mesi: date strategiche di uscita, approvazione degli script, mediazione tra i creator e il cliente. Il canale TikTok l’abbiamo aperto e gestito da zero.',
-    board: { formato: '16-9', file: '', alt: 'Board del progetto PiùMe', etichetta: 'Board PiùMe' },
+    board: { formato: '16-9', file: '/board-piume.jpg', alt: 'Board del progetto PiùMe', etichetta: 'Board PiùMe' },
   },
 }
 
@@ -149,7 +149,7 @@ export const CREATIVE = {
         'Ho seguito la fase finale: ultime riprese delle videolezioni, messa online della piattaforma, stesura dei quiz di verifica. Poi l’evento di lancio, il presskit e il rapporto con le testate.',
       ruolo: '',
       link: { testo: 'learningoffashion.com', url: 'https://learningoffashion.com' },
-      board: { formato: '16-9', file: '', alt: 'Board del progetto Learning of Fashion', etichetta: 'Board Learning of Fashion' },
+      board: { formato: '16-9', file: '/board-lof.jpg', alt: 'Board del progetto Learning of Fashion', etichetta: 'Board Learning of Fashion' },
     },
     {
       titolo: 'Mangiare dev’essere un piacere',
@@ -159,7 +159,7 @@ export const CREATIVE = {
       ruolo:
         'Da stagista, in supporto al team lungo tutto il progetto: proposte di casting per il comico e per lo chef, scrittura delle scenette, coordinamento con la casa di produzione e presenza sul set durante le riprese. Ho disegnato il logo della campagna e scritto parte dei testi.',
       link: { testo: 'mangiaredevessereunpiacere.it', url: 'https://mangiaredevessereunpiacere.it' },
-      media: { formato: '16-9', file: '', alt: '', etichetta: 'Campagna Mangiare dev’essere un piacere' },
+      media: { formato: '16-9', file: '/mangiare.jpg', alt: 'Campagna Mangiare dev’essere un piacere', etichetta: 'Campagna Mangiare dev’essere un piacere' },
     },
   ],
 }
