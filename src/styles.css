@@ -149,7 +149,7 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
   font-family: var(--display);
   font-weight: 400;
   font-size: clamp(2.6rem, 9.2vw, 9.5rem);
-  line-height: 0.79;
+  line-height: 0.92;
   letter-spacing: -0.015em;
   text-transform: uppercase;
   margin: 0;
@@ -160,7 +160,7 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 .ruolo {
   font-family: var(--display);
   font-size: clamp(0.85rem, 1.75vw, 1.85rem);
-  line-height: 1.02;
+  line-height: 1.12;
   text-transform: uppercase;
   margin: 0 0 0.12em;
   max-width: 9em;
@@ -185,16 +185,16 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 .sezione-titolo {
   font-family: var(--display);
   font-weight: 400;
-  font-size: clamp(2.4rem, 9.5vw, 8rem);
-  line-height: 0.83;
-  letter-spacing: -0.01em;
+  font-size: clamp(2.4rem, 8.5vw, 7.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.005em;
   text-transform: uppercase;
   margin: 0;
 }
 .sezione-titolo span { display: block; }
 
 .sezione-nota {
-  margin: clamp(1.2rem, 2.4vw, 1.9rem) 0 0;
+  margin: clamp(1.75rem, 3.5vw, 2.75rem) 0 0;
   max-width: 58ch;
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.18rem);
 }
@@ -208,22 +208,22 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 .profilo-nome {
   font-family: var(--display);
   font-size: clamp(1.35rem, 2.6vw, 2.1rem);
-  line-height: 1;
+  line-height: 1.06;
   text-transform: uppercase;
   margin: 0;
 }
 .profilo-settore { margin: 0; font-size: 0.95rem; opacity: 0.7; }
 
-.fila-verticali {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(0, 1fr);
+.fila-verticali,
+.fila-post {
+  display: flex;
+  flex-wrap: wrap;
   gap: clamp(0.75rem, 1.5vw, 1.25rem);
-  margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
 }
+.fila-verticali { margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem); }
+.fila-verticali > * { flex: 0 1 clamp(150px, 21vw, 285px); }
+.fila-post > * { flex: 0 1 clamp(150px, 21vw, 285px); }
 .fila-verticali.larga { margin-top: clamp(2.5rem, 5vw, 4rem); margin-bottom: 0; }
-
-.fila-post { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(0.75rem, 1.5vw, 1.25rem); }
 
 .griglia-media { margin-top: clamp(2.25rem, 4.5vw, 4rem); display: grid; gap: clamp(0.75rem, 1.5vw, 1.25rem); }
 .griglia-media.due { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -267,7 +267,7 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 .progetto-titolo {
   font-family: var(--display);
   font-size: clamp(1.45rem, 2.9vw, 2.4rem);
-  line-height: 1;
+  line-height: 1.06;
   text-transform: uppercase;
   margin: 0 0 0.3rem;
 }
@@ -413,8 +413,8 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 
 .piede-titolo {
   font-family: var(--display);
-  font-size: clamp(2.4rem, 9.5vw, 8rem);
-  line-height: 0.83;
+  font-size: clamp(2.4rem, 8.5vw, 7.5rem);
+  line-height: 0.94;
   text-transform: uppercase;
   margin: 0 0 clamp(1.5rem, 3vw, 2.25rem);
 }
@@ -447,10 +447,6 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
   .ruolo { max-width: none; }
   .recapiti { gap: 0.5rem 1.25rem; }
   .progetto { grid-template-columns: 1fr; }
-  .fila-verticali, .fila-verticali.larga {
-    grid-auto-flow: row;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .progetto-media { margin-top: 0.5rem; }
   .griglia-media.tre { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .barra-recapiti span { display: none; }
@@ -458,7 +454,9 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
 
 @media (max-width: 540px) {
   .griglia-media.due, .griglia-media.tre { grid-template-columns: 1fr; }
-  .fila-post { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+  .fila-verticali > *, .fila-post > * { flex: 0 1 calc(50% - 0.5rem); }
+  .fila-post > * { flex: 0 1 calc(33.333% - 0.5rem); }
+  .fila-verticali, .fila-post { gap: 0.5rem; }
   .profilo-media { grid-template-columns: 1fr; }
   .board-cta { font-size: 0.65rem; padding: 0.55rem 0.85rem; }
   .sezione-testa .punto { width: 26px; height: 26px; margin-top: 0.35rem; }
