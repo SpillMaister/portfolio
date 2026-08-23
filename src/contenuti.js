@@ -44,41 +44,41 @@ export const SOCIAL = {
     'Gestisco la comunicazione online delle aziende dall’inizio alla fine.',
     'Divido i contenuti per format, ognuno con un compito diverso: c’è quello che racconta la storia dell’azienda, quello che spiega una tecnologia, quello che porta avanti il prodotto. Messi insieme coprono tutti i punti che il brand deve presidiare, invece di ripetere sempre lo stesso messaggio.',
     'Penso i concept creativi dei format e dirigo gli shooting. La pubblicazione è automatizzata: programmo i piani editoriali su Metricool con Claude, e uso agenti GPT istruiti sul singolo cliente per scrivere caption e articoli nel suo tono di voce.',
-    'Sulle campagne Meta costruisco la strategia partendo dal budget e dagli obiettivi: studio le user persona, imposto il funnel, scelgo i formati. E automatizzo anche il controllo — con Claude programmo routine che ogni mattina scaricano i contatti in Excel e mi avvisano quando budget o performance escono dalla strategia.',
+    'Sulle campagne Meta costruisco la strategia partendo dal budget e dagli obiettivi: studio le user persona, imposto il funnel, scelgo i formati. E automatizzo anche il controllo: con Claude programmo routine che ogni mattina scaricano i contatti in Excel e mi avvisano quando budget o performance escono dalla strategia.',
   ],
 
   profili: [
     {
       nome: 'Conceria Tempesti',
-      settore: 'Distretto conciario toscano',
-      video: [{ vimeo: '1220505084', etichetta: 'Reel — Tempesti' }],
+      settore: 'Pelle conciata al vegetale dal 1946',
+      video: [{ vimeo: '1220505084', etichetta: 'Reel Tempesti' }],
       feed: { formato: '9-16', file: '/tempesti-feed.jpg', alt: 'Feed Instagram Conceria Tempesti', etichetta: 'Feed Tempesti' },
       post: [
-        { formato: '1-1', file: '/tempesti-1.jpg', alt: 'Format 1 — Conceria Tempesti', etichetta: 'Format 1' },
-        { formato: '1-1', file: '/tempesti-2.jpg', alt: 'Format 2 — Conceria Tempesti', etichetta: 'Format 2' },
-        { formato: '1-1', file: '/tempesti-3.jpg', alt: 'Format 3 — Conceria Tempesti', etichetta: 'Format 3' },
+        { formato: '1-1', file: '/tempesti-1.jpg', alt: 'Format 1, Conceria Tempesti', etichetta: 'Format 1' },
+        { formato: '1-1', file: '/tempesti-2.jpg', alt: 'Format 2, Conceria Tempesti', etichetta: 'Format 2' },
+        { formato: '1-1', file: '/tempesti-3.jpg', alt: 'Format 3, Conceria Tempesti', etichetta: 'Format 3' },
       ],
     },
     {
       nome: 'Fibel Group',
-      settore: '',
-      video: [{ vimeo: '1220502907', etichetta: 'Reel — Fibel Group' }],
+      settore: 'Luxury metal accessories for leather goods',
+      video: [{ vimeo: '1220502907', etichetta: 'Reel Fibel Group' }],
       feed: { formato: '9-16', file: '/fibel-feed.jpg', alt: 'Feed Instagram Fibel Group', etichetta: 'Feed Fibel Group' },
       post: [
-        { formato: '1-1', file: '/fibel-1.jpg', alt: 'Format 1 — Fibel Group', etichetta: 'Format 1' },
-        { formato: '1-1', file: '/fibel-2.jpg', alt: 'Format 2 — Fibel Group', etichetta: 'Format 2' },
-        { formato: '1-1', file: '/fibel-3.jpg', alt: 'Format 3 — Fibel Group', etichetta: 'Format 3' },
+        { formato: '1-1', file: '/fibel-1.jpg', alt: 'Format 1, Fibel Group', etichetta: 'Format 1' },
+        { formato: '1-1', file: '/fibel-2.jpg', alt: 'Format 2, Fibel Group', etichetta: 'Format 2' },
+        { formato: '1-1', file: '/fibel-3.jpg', alt: 'Format 3, Fibel Group', etichetta: 'Format 3' },
       ],
     },
     {
       nome: 'Harris Shoes 1913',
-      settore: 'Calzature artigianali',
-      video: [{ vimeo: '1220503029', etichetta: 'Reel — Harris Shoes' }],
+      settore: 'Unique artisan shoes, handmade in Italy since 1913',
+      video: [{ vimeo: '1220503029', etichetta: 'Reel Harris Shoes' }],
       feed: { formato: '9-16', file: '/harris-feed.jpg', alt: 'Feed Instagram Harris Shoes', etichetta: 'Feed Harris Shoes' },
       post: [
-        { formato: '1-1', file: '/harris-1.jpg', alt: 'Format 1 — Harris Shoes', etichetta: 'Format 1' },
-        { formato: '1-1', file: '/harris-2.jpg', alt: 'Format 2 — Harris Shoes', etichetta: 'Format 2' },
-        { formato: '1-1', file: '/harris-3.jpg', alt: 'Format 3 — Harris Shoes', etichetta: 'Format 3' },
+        { formato: '1-1', file: '/harris-1.jpg', alt: 'Format 1, Harris Shoes', etichetta: 'Format 1' },
+        { formato: '1-1', file: '/harris-2.jpg', alt: 'Format 2, Harris Shoes', etichetta: 'Format 2' },
+        { formato: '1-1', file: '/harris-3.jpg', alt: 'Format 3, Harris Shoes', etichetta: 'Format 3' },
       ],
     },
   ],
@@ -89,6 +89,7 @@ export const SOCIAL = {
     testo:
       'Ho coordinato 16 creator e il piano editoriale su sei mesi: date strategiche di uscita, approvazione degli script, mediazione tra i creator e il cliente. Il canale TikTok l’abbiamo aperto e gestito da zero.',
     board: { formato: '16-9', file: '/board-piume.jpg', alt: 'Board del progetto PiùMe', etichetta: 'Board PiùMe', ingrandibile: true },
+    reel: { vimeo: '', formato: '9-16', etichetta: 'Reel campagna PiùMe' },
   },
 }
 
@@ -126,7 +127,7 @@ export const CREATIVE = {
       titolo: 'Organazoto',
       sottotitolo: 'Video corporate per il lancio della linea liquida',
       testo:
-        'Un’azienda che dal 1972 produce fertilizzanti doveva presentare una nuova linea. Ho scelto di non usare il linguaggio del settore — niente grafici, niente rese, niente formule — e ho scritto il video come una lettera del CEO agli agricoltori. Il lancio del prodotto arriva solo alla fine, come conseguenza di quello che gli agricoltori hanno insegnato all’azienda in cinquant’anni.',
+        'Un’azienda che dal 1972 produce fertilizzanti doveva presentare una nuova linea. Ho scelto di non usare il linguaggio del settore, niente grafici né rese né formule, e ho scritto il video come una lettera del CEO agli agricoltori. Il lancio del prodotto arriva solo alla fine, come conseguenza di quello che gli agricoltori hanno insegnato all’azienda in cinquant’anni.',
       ruolo: 'Concept, script, selezione di videomaker e voce, direzione della produzione. Prodotto anche in inglese e spagnolo.',
       video: { vimeo: '1220499621', formato: '16-9', etichetta: 'Video Organazoto' },
     },
@@ -149,11 +150,11 @@ export const CREATIVE = {
     },
     {
       titolo: 'Mangiare dev’essere un piacere',
-      sottotitolo: 'Campagna di sensibilizzazione — BB&C Group',
+      sottotitolo: 'Campagna di sensibilizzazione, BB&C Group',
       testo:
-        'Le campagne sulle malattie rare hanno quasi tutte lo stesso tono grave. Questa parte dal presupposto opposto: l’esofagite eosinofila si racconta meglio facendo ridere. Edoardo Mecca, comico radiofonico, mette in scena quello che chi ne soffre fa davvero — frullare il cibo, annegarlo nelle salse — mentre Bubu, finalista di MasterChef Italia, costruisce un menu pensato per la patologia. Le video-pillole dei medici e dell’associazione pazienti ESEO reggono la parte scientifica.',
+        'Le campagne sulle malattie rare hanno quasi tutte lo stesso tono grave. Questa parte dal presupposto opposto: l’esofagite eosinofila si racconta meglio facendo ridere. Edoardo Mecca, comico radiofonico, mette in scena quello che chi ne soffre fa davvero: frullare il cibo, annegarlo nelle salse. Bubu, finalista di MasterChef Italia, costruisce un menu pensato per la patologia. Le video-pillole dei medici e dell’associazione pazienti ESEO reggono la parte scientifica.',
       ruolo:
-        'Da stagista, in supporto al team lungo tutto il progetto: proposte di casting per il comico e per lo chef, scrittura delle scenette, coordinamento con la casa di produzione e presenza sul set durante le riprese. Ho disegnato il logo della campagna e scritto parte dei testi.',
+        'Ho supportato il team lungo tutto il progetto: proposte di casting per il comico e per lo chef, scrittura delle scenette, coordinamento con la casa di produzione e presenza sul set durante le riprese. Ho disegnato il logo della campagna e scritto parte dei testi.',
       link: { testo: 'mangiaredevessereunpiacere.it', url: 'https://mangiaredevessereunpiacere.it' },
       media: { formato: '16-9', file: '/mangiare.jpg', alt: 'Campagna Mangiare dev’essere un piacere', etichetta: 'Campagna Mangiare dev’essere un piacere' },
     },
