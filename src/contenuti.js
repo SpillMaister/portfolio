@@ -166,29 +166,29 @@ export const CREATIVE = {
 }
 
 /* ==========================================================================
-   4 — TRAGUARDI (cruscotto che segue lo scorrimento)
-
-   Compaiono in basso a sinistra e cambiano a seconda della sezione.
-   Se un blocco resta vuoto, il cruscotto per quella sezione non compare.
-
-   ⚠️ Metti solo numeri che sapresti difendere in colloquio.
+   4 — NUMERI
+   Compaiono a destra del testo di sezione (sotto, su telefono).
+   Se una voce ha solo `numero`, esce solo quello.
    ========================================================================== */
 
 export const TRAGUARDI = {
   social: [
-    { numero: '12+', etichetta: 'Aziende seguite in parallelo' },
-    { numero: '16', etichetta: 'Creator coordinati su 6 mesi', nota: 'Piano editoriale e approvazioni' },
-    { numero: '264 mln', etichetta: 'Visualizzazioni', nota: 'Campagna PiùMe' },
-    // ← qui vanno i tuoi numeri veri sui profili: crescita follower, copertura media…
+    { numero: '+12', etichetta: 'Aziende seguite nella comunicazione online' },
+    { numero: 'B2C e B2B', etichetta: 'Due mercati, due linguaggi' },
+    { numero: 'AI', etichetta: 'Ottimizzazione dei processi di lavoro' },
   ],
 
   live: [
-    // Esempi da riempire con dati reali, poi togli questa riga:
-    // { numero: '< 10 min', etichetta: 'Dal girato alla pubblicazione' },
+    { numero: '15 min', etichetta: 'Montaggio di una storia' },
+    { numero: '1 ora', etichetta: 'Montaggio di un reel' },
+    { numero: 'CapCut AI', etichetta: 'Automontaggio' },
   ],
 
-  creative: [
-    { numero: '3', etichetta: 'Lingue di produzione', nota: 'Organazoto' },
-    { numero: '14', etichetta: 'Professionisti coinvolti', nota: 'Learning of Fashion' },
+  creative: [],
+
+  piume: [
+    { numero: '16', etichetta: 'Creator coordinati' },
+    { numero: '264 mln', etichetta: 'Visualizzazioni della campagna' },
+    { numero: '6 mesi', etichetta: 'Di campagna continuativa' },
   ],
 }
