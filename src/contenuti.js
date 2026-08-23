@@ -87,9 +87,13 @@ export const SOCIAL = {
     titolo: 'PiùMe',
     ruolo: 'Project management della campagna influencer',
     testo:
-      'Ho coordinato 16 creator e il piano editoriale su sei mesi: date strategiche di uscita, approvazione degli script, mediazione tra i creator e il cliente. Il canale TikTok l’abbiamo aperto e gestito da zero.',
+      'Ho coordinato 16 creator e il piano editoriale su sei mesi, con la campagna scandita sui momenti dell’anno: rientro a scuola, Black Friday, Natale. Il lavoro vero è stato tenere insieme due esigenze opposte: la voce dei creator, che funziona solo se non suona pubblicitaria, e i messaggi che il cliente doveva vedere passare. Ogni script è passato da lì prima di andare in produzione. Il canale TikTok l’abbiamo aperto e gestito da zero.',
     board: { formato: '16-9', file: '/board-piume.jpg', alt: 'Board del progetto PiùMe', etichetta: 'Board PiùMe', ingrandibile: true },
-    reel: { vimeo: '', formato: '9-16', etichetta: 'Reel campagna PiùMe' },
+    reel: [
+      { vimeo: '1220516374', formato: '9-16', etichetta: 'Reel PiùMe 1' },
+      { vimeo: '1220516397', formato: '9-16', etichetta: 'Reel PiùMe 2' },
+      { vimeo: '1220516359', formato: '9-16', etichetta: 'Reel PiùMe 3' },
+    ],
   },
 }
 
@@ -158,5 +162,33 @@ export const CREATIVE = {
       link: { testo: 'mangiaredevessereunpiacere.it', url: 'https://mangiaredevessereunpiacere.it' },
       media: { formato: '16-9', file: '/mangiare.jpg', alt: 'Campagna Mangiare dev’essere un piacere', etichetta: 'Campagna Mangiare dev’essere un piacere' },
     },
+  ],
+}
+
+/* ==========================================================================
+   4 — TRAGUARDI (cruscotto che segue lo scorrimento)
+
+   Compaiono in basso a sinistra e cambiano a seconda della sezione.
+   Se un blocco resta vuoto, il cruscotto per quella sezione non compare.
+
+   ⚠️ Metti solo numeri che sapresti difendere in colloquio.
+   ========================================================================== */
+
+export const TRAGUARDI = {
+  social: [
+    { numero: '12+', etichetta: 'Aziende seguite in parallelo' },
+    { numero: '16', etichetta: 'Creator coordinati su 6 mesi', nota: 'Piano editoriale e approvazioni' },
+    { numero: '264 mln', etichetta: 'Visualizzazioni', nota: 'Campagna PiùMe' },
+    // ← qui vanno i tuoi numeri veri sui profili: crescita follower, copertura media…
+  ],
+
+  live: [
+    // Esempi da riempire con dati reali, poi togli questa riga:
+    // { numero: '< 10 min', etichetta: 'Dal girato alla pubblicazione' },
+  ],
+
+  creative: [
+    { numero: '3', etichetta: 'Lingue di produzione', nota: 'Organazoto' },
+    { numero: '14', etichetta: 'Professionisti coinvolti', nota: 'Learning of Fashion' },
   ],
 }
