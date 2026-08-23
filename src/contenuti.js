@@ -51,7 +51,7 @@ export const SOCIAL = {
     {
       nome: 'Conceria Tempesti',
       settore: 'Distretto conciario toscano',
-      video: [{ vimeo: '1220502033', etichetta: 'Reel — Tempesti' }],
+      video: [{ vimeo: '1220505084', etichetta: 'Reel — Tempesti' }],
       feed: { formato: '9-16', file: '/tempesti-feed.jpg', alt: 'Feed Instagram Conceria Tempesti', etichetta: 'Feed Tempesti' },
       post: [
         { formato: '1-1', file: '/tempesti-1.jpg', alt: 'Format 1 — Conceria Tempesti', etichetta: 'Format 1' },
@@ -105,8 +105,8 @@ export const LIVE = {
   ],
 
   video: [
-    { vimeo: '', etichetta: 'Live 1' },
-    { vimeo: '', etichetta: 'Live 2' },
+    { vimeo: '1220506291', etichetta: 'Live 1' },
+    { vimeo: '1220506338', etichetta: 'Live 2' },
   ],
 }
 
