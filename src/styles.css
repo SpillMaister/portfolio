@@ -580,3 +580,28 @@ button.media { font: inherit; color: inherit; cursor: zoom-in; }
   .blocco-reel { grid-template-columns: 1fr; }
   .traguardi { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
 }
+
+/* ============================================================================
+   LINKEDIN
+   ============================================================================ */
+
+.linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 0;
+  line-height: 1;
+}
+.linkedin svg {
+  width: 1.35em;
+  height: 1.35em;
+  fill: var(--blu);
+  display: block;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.linkedin:hover svg { opacity: 0.72; transform: translateY(-1px); }
+.linkedin span { border-bottom: 2px solid var(--blu-linea); transition: border-color 0.2s ease; }
+.linkedin:hover span { border-color: var(--blu); }
+.linkedin:focus-visible { outline: 3px solid var(--blu); outline-offset: 4px; border-radius: 2px; }
+
+.piede-righe .linkedin svg { width: 1.15em; height: 1.15em; }
