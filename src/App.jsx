@@ -118,22 +118,21 @@ function Appare({ children, className = '', ...props }) {
   )
 }
 
-function Traguardi({ dati }) {
+function Traguardi({ dati, className = '' }) {
   if (!dati || dati.length === 0) return null
   return (
-    <Appare className="traguardi">
+    <div className={`traguardi ${className}`.trim()}>
       {dati.map((d) => (
-        <div className="traguardo" key={d.etichetta}>
+        <div className="traguardo" key={d.numero + d.etichetta}>
           <strong>{d.numero}</strong>
-          <span>{d.etichetta}</span>
-          {d.nota && <em>{d.nota}</em>}
+          {d.etichetta && <span>{d.etichetta}</span>}
         </div>
       ))}
-    </Appare>
+    </div>
   )
 }
 
-function TestaSezione({ titolo, testo }) {
+function TestaSezione({ titolo, testo, numeri }) {
   return (
     <Appare>
       <div className="sezione-testa">
@@ -144,10 +143,14 @@ function TestaSezione({ titolo, testo }) {
           ))}
         </h2>
       </div>
-      <div className="sezione-nota">
-        {testo.map((p, i) => (
-          <p key={i}>{p}</p>
-        ))}
+
+      <div className="sezione-corpo">
+        <div className="sezione-nota">
+          {testo.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
+        <Traguardi dati={numeri} />
       </div>
     </Appare>
   )
@@ -273,8 +276,7 @@ export default function App() {
       <main id="contenuto">
         <section className="sezione" id="social">
           <div className="wrap">
-            <TestaSezione titolo={SOCIAL.titolo} testo={SOCIAL.testo} />
-            <Traguardi dati={TRAGUARDI.social} />
+            <TestaSezione titolo={SOCIAL.titolo} testo={SOCIAL.testo} numeri={TRAGUARDI.social} />
 
             <div className="profili">
               {SOCIAL.profili.map((p) => (
@@ -292,10 +294,13 @@ export default function App() {
                 }}
               />
               {SOCIAL.progetto.reel?.length > 0 && (
-                <Appare className="fila-verticali larga sotto-progetto">
-                  {SOCIAL.progetto.reel.map((r, i) => (
-                    <Media key={i} dato={r} />
-                  ))}
+                <Appare className="blocco-reel">
+                  <div className="fila-verticali larga">
+                    {SOCIAL.progetto.reel.map((r, i) => (
+                      <Media key={i} dato={r} />
+                    ))}
+                  </div>
+                  <Traguardi dati={TRAGUARDI.piume} className="accanto" />
                 </Appare>
               )}
             </div>
@@ -304,8 +309,7 @@ export default function App() {
 
         <section className="sezione" id="live">
           <div className="wrap">
-            <TestaSezione titolo={LIVE.titolo} testo={LIVE.testo} />
-            <Traguardi dati={TRAGUARDI.live} />
+            <TestaSezione titolo={LIVE.titolo} testo={LIVE.testo} numeri={TRAGUARDI.live} />
             <div className="fila-verticali larga">
               {LIVE.video.map((v, i) => (
                 <Media key={i} dato={{ ...v, formato: '9-16' }} />
@@ -316,8 +320,7 @@ export default function App() {
 
         <section className="sezione" id="creative">
           <div className="wrap">
-            <TestaSezione titolo={CREATIVE.titolo} testo={CREATIVE.testo} />
-            <Traguardi dati={TRAGUARDI.creative} />
+            <TestaSezione titolo={CREATIVE.titolo} testo={CREATIVE.testo} numeri={TRAGUARDI.creative} />
             <div className="progetti">
               {CREATIVE.progetti.map((p) => (
                 <Progetto key={p.titolo} dato={p} />
