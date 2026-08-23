@@ -577,8 +577,22 @@ button.media { font: inherit; color: inherit; cursor: zoom-in; }
 
 @media (max-width: 900px) {
   .sezione-corpo { grid-template-columns: 1fr; }
-  .blocco-reel { grid-template-columns: 1fr; }
   .traguardi { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+
+  /* PiùMe: i tre video e il blocco numeri formano una griglia 2×2 */
+  .blocco-reel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+  }
+  .blocco-reel .fila-verticali { display: contents; }
+  .blocco-reel .traguardi {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-content: start;
+  }
+  .blocco-reel .traguardo { padding-top: 0.6rem; }
+  .traguardi.accanto .traguardo strong { font-size: clamp(1.5rem, 7vw, 2.2rem); }
+  .traguardi.accanto .traguardo span { font-size: 0.8rem; }
 }
 
 /* ============================================================================
