@@ -118,6 +118,21 @@ function Appare({ children, className = '', ...props }) {
   )
 }
 
+function Traguardi({ dati }) {
+  if (!dati || dati.length === 0) return null
+  return (
+    <Appare className="traguardi">
+      {dati.map((d) => (
+        <div className="traguardo" key={d.etichetta}>
+          <strong>{d.numero}</strong>
+          <span>{d.etichetta}</span>
+          {d.nota && <em>{d.nota}</em>}
+        </div>
+      ))}
+    </Appare>
+  )
+}
+
 function TestaSezione({ titolo, testo }) {
   return (
     <Appare>
@@ -188,45 +203,6 @@ function Progetto({ dato }) {
   )
 }
 
-/* Cruscotto dei traguardi: segue lo scorrimento e cambia con la sezione. */
-function Cruscotto() {
-  const [sezione, setSezione] = useState(null)
-
-  useEffect(() => {
-    const sezioni = Array.from(document.querySelectorAll('main section[id]'))
-    if (!sezioni.length || !('IntersectionObserver' in window)) return
-
-    const osservatore = new IntersectionObserver(
-      (voci) => {
-        const visibili = voci
-          .filter((v) => v.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-        setSezione(visibili.length ? visibili[0].target.id : null)
-      },
-      { rootMargin: '-40% 0px -40% 0px', threshold: [0, 0.25, 0.5, 1] },
-    )
-    sezioni.forEach((s) => osservatore.observe(s))
-    return () => osservatore.disconnect()
-  }, [])
-
-  const dati = (sezione && TRAGUARDI[sezione]) || []
-  const attivo = dati.length > 0
-
-  return (
-    <aside className={`cruscotto${attivo ? ' mostra' : ''}`} aria-live="polite" aria-label="Traguardi">
-      <ul key={sezione}>
-        {dati.map((d, i) => (
-          <li key={d.etichetta} style={{ animationDelay: `${i * 90}ms` }}>
-            <strong>{d.numero}</strong>
-            <span>{d.etichetta}</span>
-            {d.nota && <em>{d.nota}</em>}
-          </li>
-        ))}
-      </ul>
-    </aside>
-  )
-}
-
 function Barra({ a }) {
   const [mostra, setMostra] = useState(false)
 
@@ -257,7 +233,6 @@ export default function App() {
     <>
       <a className="salta" href="#contenuto">Vai al contenuto</a>
       <Barra a={a} />
-      <Cruscotto />
 
       <header className="testata" id="inizio">
         <div className="wrap">
@@ -299,6 +274,7 @@ export default function App() {
         <section className="sezione" id="social">
           <div className="wrap">
             <TestaSezione titolo={SOCIAL.titolo} testo={SOCIAL.testo} />
+            <Traguardi dati={TRAGUARDI.social} />
 
             <div className="profili">
               {SOCIAL.profili.map((p) => (
@@ -329,6 +305,7 @@ export default function App() {
         <section className="sezione" id="live">
           <div className="wrap">
             <TestaSezione titolo={LIVE.titolo} testo={LIVE.testo} />
+            <Traguardi dati={TRAGUARDI.live} />
             <div className="fila-verticali larga">
               {LIVE.video.map((v, i) => (
                 <Media key={i} dato={{ ...v, formato: '9-16' }} />
@@ -340,6 +317,7 @@ export default function App() {
         <section className="sezione" id="creative">
           <div className="wrap">
             <TestaSezione titolo={CREATIVE.titolo} testo={CREATIVE.testo} />
+            <Traguardi dati={TRAGUARDI.creative} />
             <div className="progetti">
               {CREATIVE.progetti.map((p) => (
                 <Progetto key={p.titolo} dato={p} />
