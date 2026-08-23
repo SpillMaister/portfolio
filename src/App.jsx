@@ -275,6 +275,11 @@ export default function App() {
                   board: SOCIAL.progetto.board,
                 }}
               />
+              {SOCIAL.progetto.reel && (
+                <Appare className="fila-verticali larga sotto-progetto">
+                  <Media dato={SOCIAL.progetto.reel} />
+                </Appare>
+              )}
             </div>
           </div>
         </section>
