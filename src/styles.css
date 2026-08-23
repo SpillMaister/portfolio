@@ -236,6 +236,7 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
   margin-bottom: 0;
 }
 .fila-verticali.larga > * { flex: 0 1 clamp(150px, 21vw, 285px); }
+.fila-verticali.larga.sotto-progetto { margin-top: clamp(1.25rem, 2.5vw, 2rem); }
 
 .griglia-media { margin-top: clamp(2.25rem, 4.5vw, 4rem); display: grid; gap: clamp(0.75rem, 1.5vw, 1.25rem); }
 .griglia-media.due { grid-template-columns: repeat(2, minmax(0, 1fr)); }
