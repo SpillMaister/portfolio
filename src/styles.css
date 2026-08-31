@@ -619,3 +619,40 @@ button.media { font: inherit; color: inherit; cursor: zoom-in; }
 .linkedin:focus-visible { outline: 3px solid var(--blu); outline-offset: 4px; border-radius: 2px; }
 
 .piede-righe .linkedin svg { width: 1.15em; height: 1.15em; }
+
+/* ============================================================================
+   SELETTORE DI LINGUA
+   ============================================================================ */
+
+.lingue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--testo);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+.lingue span { opacity: 0.35; }
+
+.lingue button {
+  font: inherit;
+  letter-spacing: inherit;
+  color: var(--blu);
+  background: transparent;
+  border: 0;
+  padding: 0.2rem 0;
+  cursor: pointer;
+  opacity: 0.45;
+  border-bottom: 2px solid transparent;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+.lingue button:hover { opacity: 0.8; }
+.lingue button.attiva { opacity: 1; border-bottom-color: var(--blu); }
+.lingue button:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; }
+
+.lingue.in-testata {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: clamp(1rem, 2vw, 1.75rem);
+}
