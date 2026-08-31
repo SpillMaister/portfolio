@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { ANAGRAFICA, INTERFACCIA, SOCIAL, LIVE, CREATIVE, TRAGUARDI } from './contenuti.js'
 
 /* ============================================================================
@@ -222,7 +222,40 @@ function Progetto({ dato, lingua }) {
   )
 }
 
-/* Selettore di lingua */
+/* Bandiere per il cambio lingua */
+function BandieraItalia() {
+  return (
+    <svg viewBox="0 0 3 2" aria-hidden="true" focusable="false">
+      <rect width="1" height="2" fill="#008C45" />
+      <rect x="1" width="1" height="2" fill="#F4F5F0" />
+      <rect x="2" width="1" height="2" fill="#CD212A" />
+    </svg>
+  )
+}
+
+function BandieraRegnoUnito() {
+  const id = useId()
+  const bordo = `${id}-bordo`
+  const spicchi = `${id}-spicchi`
+  return (
+    <svg viewBox="0 0 60 30" aria-hidden="true" focusable="false">
+      <clipPath id={bordo}>
+        <path d="M0,0 v30 h60 v-30 z" />
+      </clipPath>
+      <clipPath id={spicchi}>
+        <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
+      </clipPath>
+      <g clipPath={`url(#${bordo})`}>
+        <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#FFF" strokeWidth="6" />
+        <path d="M0,0 L60,30 M60,0 L0,30" clipPath={`url(#${spicchi})`} stroke="#C8102E" strokeWidth="4" />
+        <path d="M30,0 v30 M0,15 h60" stroke="#FFF" strokeWidth="10" />
+        <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6" />
+      </g>
+    </svg>
+  )
+}
+
 function Lingue({ lingua, cambia, className = '' }) {
   return (
     <div className={`lingue ${className}`.trim()} role="group" aria-label="Lingua / Language">
@@ -231,19 +264,20 @@ function Lingue({ lingua, cambia, className = '' }) {
         onClick={() => cambia('it')}
         className={lingua === 'it' ? 'attiva' : ''}
         aria-pressed={lingua === 'it'}
-        lang="it"
+        title="Italiano"
+        aria-label="Italiano"
       >
-        IT
+        <BandieraItalia />
       </button>
-      <span aria-hidden="true">/</span>
       <button
         type="button"
         onClick={() => cambia('en')}
         className={lingua === 'en' ? 'attiva' : ''}
         aria-pressed={lingua === 'en'}
-        lang="en"
+        title="English"
+        aria-label="English"
       >
-        EN
+        <BandieraRegnoUnito />
       </button>
     </div>
   )
