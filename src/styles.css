@@ -627,28 +627,44 @@ button.media { font: inherit; color: inherit; cursor: zoom-in; }
 .lingue {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-family: var(--testo);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  gap: 0.55rem;
 }
-.lingue span { opacity: 0.35; }
 
-.lingue button {
-  font: inherit;
-  letter-spacing: inherit;
-  color: var(--blu);
-  background: transparent;
+.lingue button,
+.barra .lingue button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  padding: 0;
+  margin: 0;
   border: 0;
-  padding: 0.2rem 0;
+  background: none;
+  box-shadow: none;
+  line-height: 0;
   cursor: pointer;
-  opacity: 0.45;
-  border-bottom: 2px solid transparent;
-  transition: opacity 0.2s ease, border-color 0.2s ease;
+  border-radius: 2px;
+  opacity: 0.4;
+  filter: grayscale(1);
+  transition: opacity 0.2s ease, filter 0.2s ease, outline-color 0.2s ease;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
-.lingue button:hover { opacity: 0.8; }
-.lingue button.attiva { opacity: 1; border-bottom-color: var(--blu); }
+
+.lingue button svg {
+  display: block;
+  width: clamp(24px, 2vw, 30px);
+  height: auto;
+  border: 1px solid var(--blu-linea);
+}
+
+.lingue button:hover { opacity: 0.75; filter: grayscale(0.3); }
+
+.lingue button.attiva {
+  opacity: 1;
+  filter: none;
+  outline-color: var(--blu);
+}
+
 .lingue button:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; }
 
 .lingue.in-testata {
@@ -656,3 +672,5 @@ button.media { font: inherit; color: inherit; cursor: zoom-in; }
   justify-content: flex-end;
   margin-bottom: clamp(1rem, 2vw, 1.75rem);
 }
+
+.barra .lingue button svg { width: 24px; }
