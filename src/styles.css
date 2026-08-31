@@ -462,7 +462,19 @@ a:focus-visible { outline: 3px solid var(--blu); outline-offset: 3px; border-rad
   .progetto { grid-template-columns: 1fr; }
   .progetto-media { margin-top: 0.5rem; }
   .griglia-media.tre { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .barra-recapiti span { display: none; }
+  /* Barra fissa su schermi stretti: niente sovrapposizioni */
+  .barra { gap: 0.75rem; }
+  .barra-nome {
+    font-size: 0.85rem;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .barra-recapiti { gap: 0.75rem; flex: none; }
+  .barra-recapiti a { font-size: 0.66rem; white-space: nowrap; }
+  .barra .lingue { gap: 0.4rem; }
+  .barra .lingue button svg { width: 20px; }
 }
 
 @media (max-width: 540px) {
@@ -674,3 +686,10 @@ button.media { font: inherit; color: inherit; cursor: zoom-in; }
 }
 
 .barra .lingue button svg { width: 24px; }
+
+/* Spaziatura nella barra fissa fra bandiere e recapito */
+.barra-recapiti {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 1.6rem);
+}
